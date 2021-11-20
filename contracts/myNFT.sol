@@ -23,10 +23,10 @@ contract MyNFT is ERC721, Ownable {
         return newItemId;
     }
 
-    function mintToken(address to, uint256 tokenId, string uri) public virtual payable {
+    function mintToken(address to, uint256 tokenId, string memory uri) public virtual payable {
         require(msg.value >= 10, "Not enough ETH sent; check price!");
         
-        mint(to, tokenId);
+        _mint(to, tokenId);
         _setTokenURI(tokenId, uri);
     }
 }
